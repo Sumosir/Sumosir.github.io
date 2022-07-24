@@ -130,8 +130,8 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>此影片致敬新海诚———————————————————————————————————————————————–<br><video src='http://rfi56t59e.sabkt.gdipper.com/%E6%96%B0%E6%B5%B7%E8%AF%9A%E7%9A%84%E5%9B%9E%E5%BF%86/%E6%88%90%E7%A5%9E%E4%B9%8B%E6%97%A5_x264.mp4 ' type='video/mp4' controls='controls'  width='100%' height='100%'><br></video></p>
-
+        <p>此影片致敬新海诚———————————————————————————————————————————————–</p>
+<div class="dplayer-box" data-url='http://rfi56t59e.sabkt.gdipper.com/%E6%96%B0%E6%B5%B7%E8%AF%9A%E7%9A%84%E5%9B%9E%E5%BF%86/%E6%88%90%E7%A5%9E%E4%B9%8B%E6%97%A5_x264.mp4' data-pic='https://img1.imgtp.com/2022/07/24/s0AVa17X.jpg' ></div>
       </section>
 
       
@@ -327,35 +327,42 @@
   <!-- aplayer -->
 
 
-  <!-- aplayer 音频 start -->
-  <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
-  <script type="text/javascript" src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
-  <script type="text/javascript">
-    const aplayer = document.querySelectorAll(".aplayer-box");
-    aplayer && initaplayer(aplayer);
-    function initaplayer(els) {
-      let elsArr = Array.from(els);
-      elsArr.forEach(el => {
-        let params = {
-          container: el,
-          audio: { ...el.dataset },
-          theme: "#b7daff",
-          autoplay: false,
-          loop: false,
-          mutex: true,
-        }
-        if (el.dataset.lrc) {
-          params['lrcType'] = 3
-        }
-        new APlayer(params);
-      });
-    }
-  </script>
-  <!-- aplayer 音频 end -->
-  
-
-
 <!-- dplayer -->
+
+
+<!-- dplayer 视频 start -->
+<script type="text/javascript" src="https://unpkg.com/hls.js@1.0.1/dist/hls.js"></script>
+<script type="text/javascript" src="https://unpkg.com/dplayer@1.25.1/dist/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer-box");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let pic = el.dataset.pic;
+      let subtitle = el.dataset.subtitle;
+
+      let options = {
+        container: el,
+        video: { url: url, pic: pic },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      }
+
+      if (subtitle) {
+        options.subtitle = {
+          url: el.dataset.subtitle,
+        }
+      }
+      new DPlayer(options);
+    });
+  }
+</script>
+<!-- dplayer 视频 end -->
+
 
 
 
