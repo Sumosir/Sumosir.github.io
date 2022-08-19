@@ -22,7 +22,7 @@
 
   
 
-  <title>新海诚的回忆 | Sumosir</title>
+  <title>轻松搭建Linux我的世界服务器 | Sumosir</title>
 
   
 
@@ -42,7 +42,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://img1.imgtp.com/2022/07/24/indhLBBi.jpg)"></div>
+    <div class="post-image" style="background-image: url(https://img1.imgtp.com/2022/08/19/ebQaYXRU.png)"></div>
   
 
   <!-- navbar -->
@@ -93,20 +93,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">新海诚的回忆</h1>
+          <h1 class="title-wrap">轻松搭建Linux我的世界服务器</h1>
           <h2 class="title-sub-wrap">
             <strong>Sumosir</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-07-24T00:23:12.000Z" itemprop="datePublished">2022-07-24</time>
+            <time  class="article-date" datetime="2022-08-19T12:55:12.000Z" itemprop="datePublished">2022-08-19</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/%E8%A7%86%E9%A2%91/">📒 视频</a></li>
+    <li><a href="/categories/%E6%95%99%E7%A8%8B/">📒 教程</a></li>
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/%E6%96%B0%E6%B5%B7%E8%AF%9A/">🏷️ 新海诚</a></li>
+    <li><a href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/">🏷️ 我的世界</a></li>
   
 </ul>
         </div>
@@ -130,40 +130,49 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>此影片致敬新海诚———————————————————————————————————————————————–</p>
-<div class="dplayer-box" data-url='https://s3plus.meituan.net/v1/mss_550586ef375b493da4aa79bebdfce4fa/csc-apply-file-web/prod/2022-07-24/7c81be8d-0752-4fea-8afe-a66eacee6487.m3u8' data-pic='https://img1.imgtp.com/2022/07/24/UHJ13XQZ.jpg' ></div>
+        <div class="aplayer-box" data-url='
+https://hexowck.oss-cn-hangzhou.aliyuncs.com/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BALinux%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E6%9C%8D%E5%8A%A1%E5%99%A8/C418%20-%20Minecraft.mp3' data-name='C418 - Minecraft' data-artist='C418' data-cover='https://img1.imgtp.com/2022/08/19/9BjUbEyM.jpg' data-lrc='https://hexowck.oss-cn-hangzhou.aliyuncs.com/%E5%9B%BE%E7%89%87%E5%88%86%E4%BA%AB1/%E9%9F%B3%E4%B9%90/Old%20Memory.lrc' data-lrcType='3' ></div>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>现如今家庭的数据越来越庞大，家用NAS越来越普及，可游戏玩家却不甘心NAS仅仅用来储存”小电影”</p>
+<p>所以本期教大家用<strong>群晖&#x2F;Linux</strong>搭建我的世界服务器</p>
+<h2 id="一、安装Java"><a href="#一、安装Java" class="headerlink" title="一、安装Java"></a><strong>一、安装Java</strong></h2><h4 id="注意！！！"><a href="#注意！！！" class="headerlink" title="注意！！！"></a><strong>注意！！！</strong></h4><p>1.16.5及以下的版本应使用Java 8，1.17-1.17.1应使用Java 16<br>1.18-1.19.2应使用Java 17，根据自己的需求来安装</p>
+<p>若是群晖直接安装Java8套件即可，其他版本可自行搜索，此处不过多介绍<br>下载安装完后可输入</p>
+<pre><code>   java -version
+</code></pre>
+<p><img src="https://img1.imgtp.com/2022/08/19/u7PlnO7O.png"><br>如图所示可见我的版本是JDK17</p>
+<h2 id="二、搭建我的世界服务端"><a href="#二、搭建我的世界服务端" class="headerlink" title="二、搭建我的世界服务端"></a><strong>二、搭建我的世界服务端</strong></h2><h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a><strong>1、下载</strong></h3><p>您接下来要做的是下载客户端所需要的“我的世界”的服务器核心<br>为了下载该版本你需要知道它的位置<br>得到所需的文件的命令是：</p>
+<pre><code>   sudo wget https://s3.amazonaws.com/Minecraft.Download/versions/[version]/minecraft_server.[version].jar
+</code></pre>
+<p>可根据自己的需要下载核心，此处只做演示<br>可以去清华大学镜像站下载JDK</p>
+<h3 id="2、启动"><a href="#2、启动" class="headerlink" title="2、启动"></a><strong>2、启动</strong></h3><h4 id="注意！！！-1"><a href="#注意！！！-1" class="headerlink" title="注意！！！"></a><strong>注意！！！</strong></h4><p>内存增加一个g&#x3D;同时在线人数增加10人<br>一核核心可以带动1-2个g的服务器<br>二核核心可以带动2-6个g的服务器<br>6个g以上内存大概就要四核的了<br>比如我想搭一个给30人玩的服务器，那么我需要的配置就是3G、2核心<br>反之，如果我有一个4G二核心的服务器，那么我的服务器最多支持同时40人在线</p>
+<p>我们可在核心目录下创建一个<strong>start.sh</strong>文件</p>
+<p>编辑文件输入</p>
+<pre><code>   java -Xms1024M -Xmx4096M -jar paper-1.19-52.jar 
+</code></pre>
+<p><strong>jar paper-1.19-52.jar</strong>是你开启服务器相对应的核心<br>输入</p>
+<pre><code>   ./start.sh
+</code></pre>
+<p>此时会报错WARN，我们需要打开eula.txt，文件，编辑<strong>eula &#x3D; false</strong>为<strong>eula &#x3D; true</strong></p>
+<p>之后再次启动start.sh文件即可启动核心，默认端口为25565</p>
+<p>如果离线玩家无法连接到服务器，那么你需要按下 <strong>CTRL+Z</strong>退出 Java 程序<br>打开文件 <strong>server.propertices</strong><br>编辑 <strong>online-mode&#x3D;true</strong>行<br>把<strong>true</strong>设置为<strong>false</strong><br>重启服务器并打开“我的世界”服务器。使用客户端重新连接到服务器，现在应该一切都好了</p>
+<p>详细的服务器设置可在<strong>server.properties</strong>中进行修改<br>此处不过多介绍</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a><em>结尾</em></h2><p>至此，完整的开服过程已经完成<br>快和小伙伴们一起愉快的玩耍吧！</p>
+
       </section>
 
       
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-      <div class="card-cover" background-image-lazy data-img="https://img1.imgtp.com/2022/08/19/ebQaYXRU.png"></div>
-    
-    <div class="card-text">
-      
-        <a href="/2022/08/19/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BALinux%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">轻松搭建Linux我的世界服务器</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://img1.imgtp.com/2022/07/10/HNwEryrD.jpg"></div>
+      <div class="card-cover" background-image-lazy data-img="https://img1.imgtp.com/2022/07/24/indhLBBi.jpg"></div>
     
     <div class="card-text">
       
-        <a href="/2022/07/10/%E5%9B%BE%E7%89%87%E5%88%86%E4%BA%AB2/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">图片分享2</h2>
+        <a href="/2022/07/24/%E6%96%B0%E6%B5%B7%E8%AF%9A%E7%9A%84%E5%9B%9E%E5%BF%861/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">新海诚的回忆</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -349,42 +358,35 @@
   <!-- aplayer -->
 
 
-<!-- dplayer -->
-
-
-<!-- dplayer 视频 start -->
-<script type="text/javascript" src="https://unpkg.com/hls.js@1.0.1/dist/hls.js"></script>
-<script type="text/javascript" src="https://unpkg.com/dplayer@1.25.1/dist/DPlayer.min.js"></script>
-<script type="text/javascript">
-  const dplayer = document.querySelectorAll(".dplayer-box");
-  dplayer && initDPlayer(dplayer);
-  function initDPlayer(els) {
-    let elsArr = Array.from(els);
-    elsArr.forEach(el => {
-      let url = el.dataset.url;
-      let pic = el.dataset.pic;
-      let subtitle = el.dataset.subtitle;
-
-      let options = {
-        container: el,
-        video: { url: url, pic: pic },
-        theme: "#b7daff",
-        autoplay: false,
-        loop: false,
-        mutex: true,
-      }
-
-      if (subtitle) {
-        options.subtitle = {
-          url: el.dataset.subtitle,
+  <!-- aplayer 音频 start -->
+  <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+  <script type="text/javascript" src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript">
+    const aplayer = document.querySelectorAll(".aplayer-box");
+    aplayer && initaplayer(aplayer);
+    function initaplayer(els) {
+      let elsArr = Array.from(els);
+      elsArr.forEach(el => {
+        let params = {
+          container: el,
+          audio: { ...el.dataset },
+          theme: "#b7daff",
+          autoplay: false,
+          loop: false,
+          mutex: true,
         }
-      }
-      new DPlayer(options);
-    });
-  }
-</script>
-<!-- dplayer 视频 end -->
+        if (el.dataset.lrc) {
+          params['lrcType'] = 3
+        }
+        new APlayer(params);
+      });
+    }
+  </script>
+  <!-- aplayer 音频 end -->
+  
 
+
+<!-- dplayer -->
 
 
 
